@@ -9,17 +9,19 @@ import androidx.appcompat.app.AppCompatActivity;
 public class MainActivity extends AppCompatActivity implements JsonTask.JsonTaskListener {
 
     private final String JSON_URL = "HTTPS_URL_TO_JSON_DATA_CHANGE_THIS_URL";
+    private final String JSON_FILE = "mountains.json";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        new JsonTask(this).execute(JSON_URL);
+        new JsonFile(this, this).execute(JSON_FILE);
     }
 
     @Override
     public void onPostExecute(String json) {
-        Log.d("JsonTask", json);
+        Log.d("MainActivity", json);
     }
+
 }
