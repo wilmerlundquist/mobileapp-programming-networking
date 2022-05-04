@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 @SuppressWarnings("FieldCanBeLocal")
 public class MainActivity extends AppCompatActivity implements JsonTask.JsonTaskListener {
@@ -17,6 +18,7 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
     private final String JSON_FILE = "mountains.json";
 
     RecyclerView recyclerView;
+    RecyclerViewAdapter adapter;
 
 
     @Override
@@ -30,11 +32,6 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
         view.setLayoutManager(new LinearLayoutManager(this));
         view.setAdapter(adapter);
 
-        ArrayList<Mountain> items = new ArrayList<>(Arrays.asList(
-                new Mountain("Matterhorn"),
-                new Mountain("Mont Blanc"),
-                new Mountain("Denali")
-        ));
     }
 
     @Override
