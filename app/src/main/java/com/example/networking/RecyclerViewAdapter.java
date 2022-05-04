@@ -1,6 +1,9 @@
 package com.example.networking;
 
+import android.view.TextureView;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -12,6 +15,18 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     public RecyclerViewAdapter(ArrayList<Mountain> mountainArrayList) {
         this.mountainArrayList = mountainArrayList;
+    }
+
+    public class MyViewHolder extends RecyclerView.ViewHolder{
+        private TextView nameText;
+        private TextView heightText;
+
+        public MyViewHolder(final View view){
+            super(view);
+            nameText = view.findViewById(R.id.title);
+            heightText = view.findViewById(R.id.textView);
+
+        }
     }
 
     @NonNull
