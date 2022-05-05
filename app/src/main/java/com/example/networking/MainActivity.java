@@ -79,7 +79,6 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
 
     @Override
     public void onPostExecute(String json){
-        adapter.notifyDataSetChanged();
         Log.d("MainActivity", json);
     }
 }
