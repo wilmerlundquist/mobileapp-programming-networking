@@ -11,11 +11,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder>{
-    private ArrayList<Mountain> mountainArrayList;
-
-    public RecyclerViewAdapter(ArrayList<Mountain> mountainArrayList) {
-        this.mountainArrayList = mountainArrayList;
-    }
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
         private TextView nameText;

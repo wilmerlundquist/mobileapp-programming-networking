@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
 
     RecyclerView recyclerView;
     RecyclerViewAdapter adapter;
+    private ArrayList<Mountain> mountainArrayList;
 
 
     @Override
@@ -31,6 +32,12 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
         RecyclerView view = findViewById(R.id.recycler_view);
         view.setLayoutManager(new LinearLayoutManager(this));
         view.setAdapter(adapter);
+
+        ArrayList<Mountain> items = new ArrayList<>(Arrays.asList(
+                new Mountain("Matterhorn"),
+                new Mountain("Mont Blanc"),
+                new Mountain("Denali")
+        ));
 
     }
 
