@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
 
         @Override
         public int getItemCount() {
-            return 0;
+            return mountainArrayList.size();
         }
     }
 
