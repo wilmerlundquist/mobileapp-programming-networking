@@ -38,10 +38,10 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
         view.setLayoutManager(new LinearLayoutManager(this));
         view.setAdapter(adapter);
 
-        ArrayList<Mountain> items = new ArrayList<>(Arrays.asList(
-                new Mountain("Kinnekulle"),
-                new Mountain("Matterhorn"),
-                new Mountain("Mount Everest")
+        ArrayList<Mountain> item = new ArrayList<>(Arrays.asList(
+                new Mountain("Kinnekulle", 4000),
+                new Mountain("Matterhorn", 2500),
+                new Mountain("Mount Everest", 8330)
         ));
 
     }

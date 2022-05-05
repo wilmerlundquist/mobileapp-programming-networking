@@ -2,18 +2,15 @@ package com.example.networking;
 
 public class Mountain {
     private String name;
-    private int height;
+    int height;
 
-    public Mountain(String name) {
+    public Mountain(String name, int height) {
         this.name = name;
+        this.height = height;
     }
 
     public String getName() {
         return name;
-    }
-
-    public Mountain(int height) {
-        this.height = height;
     }
 
     public int getHeight() {
