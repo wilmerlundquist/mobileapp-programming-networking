@@ -19,12 +19,12 @@ import java.util.List;
 @SuppressWarnings("FieldCanBeLocal")
 public class MainActivity extends AppCompatActivity implements JsonTask.JsonTaskListener {
 
-    private final String JSON_URL = "https://his.instructure.com/courses/5221";
+    private final String JSON_URL = "https://mobprog.webug.se/json-api?login=brom";
     private final String JSON_FILE = "mountains.json";
 
     RecyclerView recyclerView;
-    private ArrayList<Mountain> mountainArrayList;
-    private RecyclerViewAdapter adapter;
+    ArrayList<Mountain> mountainArrayList;
+    RecyclerViewAdapter adapter;
 
 
     @Override
@@ -33,13 +33,14 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
         setContentView(R.layout.activity_main);
 
         new JsonFile(this, this).execute(JSON_FILE);
+        new JsonTask(this).execute(JSON_URL);
 
         RecyclerView view = findViewById(R.id.recycler_view);
         view.setLayoutManager(new LinearLayoutManager(this));
         view.setAdapter(adapter);
 
-        ArrayList<Mountain> item = new ArrayList<>(Arrays.asList(
-                new Mountain("Kinnekulle", 4000),
+        mountainArrayList = new ArrayList<>(Arrays.asList(
+                new Mountain("Kinnekulle", 1000),
                 new Mountain("Matterhorn", 2500),
                 new Mountain("Mount Everest", 8330)
         ));
