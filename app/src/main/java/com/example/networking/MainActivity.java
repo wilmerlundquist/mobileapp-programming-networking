@@ -23,8 +23,8 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
     private final String JSON_FILE = "mountains.json";
 
     RecyclerView recyclerView;
-    ArrayList<Mountain> mountainArrayList;
-    RecyclerViewAdapter adapter;
+    private ArrayList<Mountain> mountainArrayList;
+    private RecyclerViewAdapter adapter;
 
 
     @Override
@@ -68,7 +68,8 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
 
         @Override
         public void onBindViewHolder(@NonNull RecyclerViewAdapter.MyViewHolder holder, int position) {
-
+            holder.name.setText(mountainArrayList.get(position).getName());
+            holder.height.setText(mountainArrayList.get(position).getHeight());
         }
 
         @Override
