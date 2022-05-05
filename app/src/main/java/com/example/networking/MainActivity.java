@@ -2,6 +2,7 @@ package com.example.networking;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -61,7 +62,8 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
         @NonNull
         @Override
         public RecyclerViewAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            return null;
+            View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_items, parent, false);
+            return new MyViewHolder(itemView);
         }
 
         @Override
