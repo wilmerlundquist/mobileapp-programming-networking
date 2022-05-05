@@ -19,7 +19,7 @@ import java.util.List;
 @SuppressWarnings("FieldCanBeLocal")
 public class MainActivity extends AppCompatActivity implements JsonTask.JsonTaskListener {
 
-    private final String JSON_URL = "HTTPS_URL_TO_JSON_DATA_CHANGE_THIS_URL";
+    private final String JSON_URL = "https://his.instructure.com/courses/5221";
     private final String JSON_FILE = "mountains.json";
 
     RecyclerView recyclerView;
@@ -43,7 +43,6 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
                 new Mountain("Matterhorn", 2500),
                 new Mountain("Mount Everest", 8330)
         ));
-
     }
 
     private class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder>{
@@ -80,6 +79,7 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
 
     @Override
     public void onPostExecute(String json){
+        adapter.notifyDataSetChanged();
         Log.d("MainActivity", json);
     }
 }
