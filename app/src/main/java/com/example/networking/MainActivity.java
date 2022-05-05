@@ -2,7 +2,11 @@ package com.example.networking;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,8 +22,8 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
     private final String JSON_FILE = "mountains.json";
 
     RecyclerView recyclerView;
+    ArrayList<Mountain> mountainArrayList;
     RecyclerViewAdapter adapter;
-    private ArrayList<Mountain> mountainArrayList;
 
 
     @Override
@@ -34,16 +38,45 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
         view.setAdapter(adapter);
 
         ArrayList<Mountain> items = new ArrayList<>(Arrays.asList(
+                new Mountain("Kinnekulle"),
                 new Mountain("Matterhorn"),
-                new Mountain("Mont Blanc"),
-                new Mountain("Denali")
+                new Mountain("Mount Everest")
         ));
 
     }
 
-    @Override
-    public void onPostExecute(String json) {
-        Log.d("MainActivity", json);
+    private class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder>{
+
+        public class MyViewHolder extends RecyclerView.ViewHolder {
+            private TextView name;
+            private TextView height;
+
+            public MyViewHolder(@NonNull View view) {
+                super(view);
+                name = view.findViewById(R.id.title);
+                height = view.findViewById(R.id.textView);
+            }
+        }
+
+        @NonNull
+        @Override
+        public RecyclerViewAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            return null;
+        }
+
+        @Override
+        public void onBindViewHolder(@NonNull RecyclerViewAdapter.MyViewHolder holder, int position) {
+
+        }
+
+        @Override
+        public int getItemCount() {
+            return 0;
+        }
     }
 
+    @Override
+    public void onPostExecute(String json){
+        Log.d("MainActivity", json);
+    }
 }
