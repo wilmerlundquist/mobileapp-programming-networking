@@ -2,8 +2,8 @@ package com.example.networking;
 
 public class Mountain {
 
-    String name;
-    int size;
+    private String name;
+    private int size;
 
     public Mountain(String name, int size) {
         this.name = name;

@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
     private final String JSON_URL = "https://mobprog.webug.se/json-api?login=brom";
     RecyclerView recyclerView;
     RecyclerViewAdapter adapter;
-    ArrayList<Mountain> mountainArrayList;
+    ArrayList<Mountain> arrayListOfMountains;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,8 +28,8 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
         new JsonTask(this).execute(JSON_URL);
 
         recyclerView= findViewById(R.id.recycler_view);
-        mountainArrayList = new ArrayList<Mountain>();
-        adapter = new RecyclerViewAdapter(mountainArrayList);
+        arrayListOfMountains = new ArrayList<Mountain>();
+        adapter = new RecyclerViewAdapter(arrayListOfMountains);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
     }
@@ -39,8 +39,8 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
     public void onPostExecute(String json) {
         Gson gson = new Gson();
         Type type = new TypeToken<ArrayList<Mountain>>() {}.getType();
-        ArrayList<Mountain> lista = gson.fromJson(json, type);
-        mountainArrayList.addAll(lista);
+        ArrayList<Mountain> list = gson.fromJson(json, type);
+        arrayListOfMountains.addAll(list);
         adapter.notifyDataSetChanged();
     }
 }
