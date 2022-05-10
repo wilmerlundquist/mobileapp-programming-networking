@@ -12,10 +12,10 @@ import java.util.List;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder> {
 
-    List<Mountain> listOfMountains;
+    List<Mountain> mountainList;
 
     public RecyclerViewAdapter(List<Mountain> mountainList) {
-        this.listOfMountains = mountainList;
+        this.mountainList = mountainList;
     }
 
     @NonNull
@@ -27,18 +27,18 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        holder.name.setText(listOfMountains.get(position).getName());
-        holder.size.setText(String.valueOf(listOfMountains.get(position).getSize()));
+        holder.name.setText(mountainList.get(position).getName());
+        holder.size.setText(String.valueOf(mountainList.get(position).getSize()));
     }
 
     @Override
     public int getItemCount() {
-        return listOfMountains.size();
+        return mountainList.size();
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder {
-        private TextView name;
-        private TextView size;
+    public static class MyViewHolder extends RecyclerView.ViewHolder {
+        private final TextView name;
+        private final TextView size;
 
         public MyViewHolder(@NonNull View view) {
             super(view);
